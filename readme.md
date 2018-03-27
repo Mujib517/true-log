@@ -1,6 +1,6 @@
 # True Logger  
 ## Http Request Logger
-<img src="https://travis-ci.org/Mujib517/true-logger.svg?branch=master"/>7
+<img src="https://travis-ci.org/Mujib517/true-logger.svg?branch=master"/>
  
 ## Instalation
     npm install true-logger --save
