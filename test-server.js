@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var trueLogger = require('./index');
 var app = express();
