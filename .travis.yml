@@ -4,4 +4,3 @@ node_js:
 scripts:
   - npm install mocha -g
   - npm install
-  - npm test
