@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"npm install"
+    "start":"npm install",
+    "test":"./node_modules/.bin/mocha tests/"
   },
   "keywords": [],
   "author": "",
