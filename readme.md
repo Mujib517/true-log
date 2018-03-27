@@ -1,4 +1,5 @@
 # True Logger 
+<img src="https://travis-ci.org/Mujib517/true-logger.svg?branch=master"/>
 ### Express Request Logger
 
 ## Instalation
