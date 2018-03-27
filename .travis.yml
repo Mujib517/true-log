@@ -2,4 +2,5 @@ language: node_js
 node_js:
   - "stable"
 scripts:
+  - npm install
   - npm test
