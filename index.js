@@ -1,10 +1,16 @@
 'use strict';
 
+var onHeaders = require('on-headers');
+var onFinished = require('on-finished');
+
 function trueLogger(config) {
 
     config = config || 'tiny';
 
     return function (req, res, next) {
+
+        captureStartTime.call(res);
+
         var logObject = {
             userAgent: req.headers['user-agent'],
             url: req.url,
@@ -15,12 +21,13 @@ function trueLogger(config) {
             date: getDate()
         };
 
+        res.logObject = logObject;
+
+        onFinished(res, captureEndTime);
         switch (config) {
             case 'tiny':
-                console.log(logObject);
                 break;
             case 'full':
-                console.log(logObject);
                 break;
         }
         next();
@@ -33,6 +40,18 @@ function getClientIP(req) {
 
 function getDate() {
     return new Date().toLocaleString();
+}
+
+function captureStartTime() {
+    console.log(this.objtype, "start time");
+    this.__startTime = new Date();
+}
+
+function captureEndTime(err, res) {
+    var time = new Date() - res.__startTime;
+    res.logObject.responseTime = time + "ms";
+    console.log(res.logObject);
+    delete res.logObject;
 }
 
 
