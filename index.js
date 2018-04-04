@@ -5,27 +5,34 @@ function trueLogger(config) {
     config = config || 'tiny';
 
     return function (req, res, next) {
-        var logObject = {};
+        var logObject = {
+            userAgent: req.headers['user-agent'],
+            url: req.url,
+            method: req.method,
+            host: req.headers.host,
+            date: new Date(),
+            ip: getClientIP(req),
+            date: getDate()
+        };
 
         switch (config) {
             case 'tiny':
-                logObject.userAgent = req.headers['user-agent'];
-                logObject.url = req.url;
-                logObject.method = req.method;
-                logObject.host = req.headers.host;
-                logObject.date = new Date();
                 console.log(logObject);
                 break;
             case 'full':
-                logObject.userAgent = req.headers.userAgent;
-                logObject.url = req.url;
-                logObject.method = req.method;
-                logObject.host = req.headers.host;
-                logObject.date = new Date();
                 console.log(logObject);
+                break;
         }
         next();
     }
+}
+
+function getClientIP(req) {
+    return req.ip || req._remoteAddress || (req.connection && req.connection.remoteAddress) || "";
+}
+
+function getDate() {
+    return new Date().toLocaleString();
 }
 
 
