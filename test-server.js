@@ -13,6 +13,11 @@ app.listen(port, function () {
 });
 
 app.get('/', function (req, res) {
-    res.status(200);   
+    res.status(200);
     res.send("Done");
+});
+
+app.get('/books', (req, res) => {
+    res.status(500);
+    res.send("Interenal server error");
 });
