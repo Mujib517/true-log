@@ -7,14 +7,19 @@
     "start": "npm install",
     "test": "./node_modules/.bin/mocha tests/"
   },
-  "keywords": [],
+  "keywords": [
+    "request logger",
+    "logger",
+    "true logger",
+    "true log"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
     "on-finished": "^2.3.0"
   },
   "devDependencies": {
+    "express": "^4.16.3",
     "chai": "^4.1.2"
   }
 }
