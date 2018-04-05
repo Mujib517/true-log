@@ -24,8 +24,10 @@ function trueLogger(config) {
         res.logObject = logObject;
 
         onFinished(res, captureEndTime);
+
         switch (config) {
             case 'tiny':
+
                 break;
             case 'full':
                 break;
@@ -43,14 +45,14 @@ function getDate() {
 }
 
 function captureStartTime() {
-    console.log(this.objtype, "start time");
     this.__startTime = new Date();
 }
 
 function captureEndTime(err, res) {
     var time = new Date() - res.__startTime;
     res.logObject.responseTime = time + "ms";
-    console.log(res.logObject);
+    console.log(JSON.stringify(res.logObject));
+    delete res.__startTime;
     delete res.logObject;
 }
 
