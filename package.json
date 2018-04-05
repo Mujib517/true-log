@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"npm install",
-    "test":"./node_modules/.bin/mocha tests/"
+    "start": "npm install",
+    "test": "./node_modules/.bin/mocha tests/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "on-finished": "^2.3.0"
   },
   "devDependencies": {
     "chai": "^4.1.2"

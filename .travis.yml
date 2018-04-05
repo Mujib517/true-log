@@ -6,3 +6,11 @@ node_js:
   - "6"
   - "5"
   - "4"
+  
+deploy:
+  provider: npm
+  email: mujib517@gmail.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    branch: master
