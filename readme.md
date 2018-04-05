@@ -15,7 +15,10 @@
 
     //register it as a middleware
     app.use(trueLog);
-
+    //or
+    //app.use(trueLog('tiny'));
+    //app.use(trueLog('full'));
+    
     app.listen(port, function () {
         console.log("Server is running on " + port);
     });
