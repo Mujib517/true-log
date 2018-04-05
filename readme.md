@@ -22,3 +22,6 @@
     app.get('/', function (req, res) {
         res.send("True logger works");
     });
+
+    ### License
+    MIT
