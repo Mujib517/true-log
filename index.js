@@ -2,6 +2,8 @@
 
 var onHeaders = require('on-headers');
 var onFinished = require('on-finished');
+var helpers = require('./helpers');
+var writeLog = require('./writer');
 
 function trueLogger(config) {
 
@@ -9,51 +11,28 @@ function trueLogger(config) {
 
     return function (req, res, next) {
 
-        captureStartTime.call(res);
-
         var logObject = {
-            userAgent: req.headers['user-agent'],
+            ip: helpers.getClientIP(req),
             url: req.url,
             method: req.method,
-            host: req.headers.host,
             date: new Date(),
-            ip: getClientIP(req),
-            date: getDate()
+            userAgent: req.headers['user-agent'],
+            date: helpers.getDate()
         };
-
         res.logObject = logObject;
-
-        onFinished(res, captureEndTime);
 
         switch (config) {
             case 'tiny':
-
+                writeLog(res);
                 break;
             case 'full':
+                helpers.captureStartTime.call(res);
+                logObject.host = req.headers.host;
+                onFinished(res, helpers.captureEndTime);
                 break;
         }
         next();
     }
-}
-
-function getClientIP(req) {
-    return req.ip || req._remoteAddress || (req.connection && req.connection.remoteAddress) || "";
-}
-
-function getDate() {
-    return new Date().toLocaleString();
-}
-
-function captureStartTime() {
-    this.__startTime = new Date();
-}
-
-function captureEndTime(err, res) {
-    var time = new Date() - res.__startTime;
-    res.logObject.responseTime = time + "ms";
-    console.log(JSON.stringify(res.logObject));
-    delete res.__startTime;
-    delete res.logObject;
 }
 
 
