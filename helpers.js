@@ -18,6 +18,8 @@ module.exports = {
     captureEndTime: function (err, res) {
         var time = new Date() - res.__startTime;
         res.logObject.responseTime = time + "ms";
+        res.logObject.status = res.statusCode;
+
         writeLog(res);
     }
 };
