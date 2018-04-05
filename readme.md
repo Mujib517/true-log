@@ -4,7 +4,6 @@
  
 ## Instalation
     npm install true-log --save
-<img src="https://travis-ci.org/Mujib517/true-logger.svg?branch=master"/>
 
 ## Integration
     var express = require('express');
