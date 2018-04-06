@@ -6,7 +6,7 @@ var writeLog = require('./writer');
 
 function trueLogger(config) {
 
-    config = config || 'tiny';
+    config = config || { level: 'tiny' };
 
     return function (req, res, next) {
 
@@ -14,13 +14,13 @@ function trueLogger(config) {
             ip: helpers.getClientIP(req),
             url: req.url,
             method: req.method,
-            date: new Date(),
             userAgent: req.headers['user-agent'],
             date: helpers.getDate()
         };
         res.logObject = logObject;
+        res.config = config;
 
-        switch (config) {
+        switch (config.level) {
             case 'tiny':
                 writeLog(res);
                 break;

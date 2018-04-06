@@ -1,12 +1,14 @@
 'use strict';
-
+var fs = require('fs');
 var express = require('express');
 var trueLogger = require('./index');
 var app = express();
 
 var port = process.env.PORT || 3000;
 
-app.use(trueLogger('full'));
+var stream = fs.createWriteStream(__dirname + "/logs/log.txt", { flags: 'a' });
+
+app.use(trueLogger({ level: 'full', stream: stream }));
 
 app.listen(port, function () {
     console.log("Server is running on " + port);
