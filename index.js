@@ -14,7 +14,6 @@ function trueLogger(config) {
             ip: helpers.getClientIP(req),
             url: req.url,
             method: req.method,
-            date: new Date(),
             userAgent: req.headers['user-agent'],
             date: helpers.getDate()
         };
