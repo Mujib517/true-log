@@ -20,6 +20,8 @@ function trueLogger(config) {
         res.logObject = logObject;
         res.config = config;
 
+        console.log("Config", res.config);
+
         switch (config.level) {
             case 'tiny':
                 writeLog(res);
