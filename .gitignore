@@ -3,3 +3,5 @@
 .atom
 node_modules
 logs/
+.nyc_output
+coverage
