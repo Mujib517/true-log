@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm install",
     "test": "./node_modules/.bin/mocha tests/",
-    "publish":"npm publish"
+    "publish": "npm publish"
   },
   "keywords": [
     "request logger",
@@ -20,7 +20,8 @@
     "on-finished": "^2.3.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "express": "^4.16.3",
-    "chai": "^4.1.2"
+    "sinon": "^4.5.0"
   }
 }

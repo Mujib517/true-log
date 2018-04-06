@@ -42,5 +42,29 @@ describe("helpers", function () {
         });
     });
 
+    describe("captureStartTime()", function () {
+
+        it("Should attach starttime to res object", function () {
+            var res = {};
+            helpers.captureStartTime.call(res);
+            expect(res.__startTime).to.not.be.null;
+        });
+    });
+
+    describe("captureEndTime()", function () {
+        
+        it("Should write log and clean up res obj", function () {
+            var res = {
+                __startTime: new Date(),
+                logObject: {},
+                statusCode: 200
+            };
+
+            helpers.captureEndTime(null, res);
+
+            expect(res.logObject).to.be.undefined;
+            expect(res.statusCode).to.be.undefined;
+        });
+    });
 
 });

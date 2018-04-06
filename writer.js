@@ -11,6 +11,7 @@ function cleanup(res) {
     delete res.__startTime;
     delete res.logObject;
     delete res.config;
+    delete res.statusCode;
 }
 
 function logToConsole(res) {
