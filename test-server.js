@@ -6,7 +6,7 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-app.use(trueLogger('full'));
+app.use(trueLogger({level:'full'}));
 
 app.listen(port, function () {
     console.log("Server is running on " + port);
