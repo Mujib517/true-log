@@ -19,6 +19,7 @@ function trueLogger(config) {
             date: helpers.getDate()
         };
         res.logObject = logObject;
+        res.config = config;
 
         switch (config.level) {
             case 'tiny':

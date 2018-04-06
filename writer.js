@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-module.exports = function writeLog(res, config) {
-    if (config && config.stream) writeToFile(res);
+module.exports = function writeLog(res) {
+    if (res.config && res.config.stream) writeToFile(res);
     else logToConsole(res);
 
     cleanup(res);
@@ -10,6 +10,7 @@ module.exports = function writeLog(res, config) {
 function cleanup(res) {
     delete res.__startTime;
     delete res.logObject;
+    delete res.config;
 }
 
 function logToConsole(res) {
@@ -32,7 +33,7 @@ function logToConsole(res) {
     console.log(color, JSON.stringify(res.logObject));
 }
 
-function writeToFile(res, config) {
-    var stream = config.stream;
+function writeToFile(res) {
+    var stream = res.config.stream;
     stream.write(JSON.stringify(res.logObject));
 }

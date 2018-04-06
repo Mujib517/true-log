@@ -2,3 +2,4 @@
 .idea
 .atom
 node_modules
+logs/
