@@ -13,6 +13,7 @@ describe("Writer", function () {
             statusCode: 200,
             __startTime: new Date()
         };
+        console.log = sinon.spy();
     });
 
     it("Should cleanup res object", function () {
@@ -30,7 +31,7 @@ describe("Writer", function () {
             write: sinon.spy()
         };
         res.config.stream = stream;
-        console.log = sinon.spy();
+        //console.log = sinon.spy();
 
         writer(res);
 
@@ -39,10 +40,14 @@ describe("Writer", function () {
     });
 
     it("Should log to console when no stream is passed", function () {
-        console.log = sinon.spy();
-
         writer(res);
 
         expect(console.log.called).to.be.true;
+
+        console.log = undefined;
+    });
+
+    afterEach(function () {
+        console.log = undefined;
     });
 });
