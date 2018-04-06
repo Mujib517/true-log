@@ -7,6 +7,7 @@
     npm install true-log --save
 
 ## Integration
+```javascript
     var express = require('express');
     var trueLog = require('true-log');
     var app = express();
@@ -23,24 +24,26 @@
     app.get('/', function (req, res) {
         res.send("True logger works");
     });
+```
 
 ## Log Level
 ### Tiny
- 
+```javascript
  var trueLog = require('true-log');
  app.use(trueLog({level:'tiny'}));
-
+```
  Logs: Client IP, Date, Method, Url, UserAgent  
 
 ### Full
-
+```javascript
  app.use(trueLog({level:'full'}));
-
+```
  Logs: Client IP, Date, Method, Url, UserAgent, Response Time and Status code
 
  ## Logging to File
-
  By default logs would be written to console but you can redirect logs to a file by passing a writeable stream
   
+  ```javascript
   var ws = fs.createWriteStream(__dirname + "/log.txt", { flags: 'a' });
   app.use(trueLog({level:'full',stream:ws}));
+  ```
