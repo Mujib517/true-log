@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm install",
     "publish": "npm publish",
-    "test": "nyc --reporter=html --reporter=text mocha tests/"
+    "test": "nyc --reporter=html --reporter=text mocha tests/",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
     "request logger",
