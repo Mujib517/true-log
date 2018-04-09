@@ -47,6 +47,6 @@
  By default logs would be written to console but you can redirect logs to a file by passing a writeable stream
   
   ```javascript
-  var ws = fs.createWriteStream(__dirname + "/log.txt", { flags: 'a' });
+  var ws = fs.createWriteStream(path.join(__dirname, "/log.txt"), { flags: 'a' });
   app.use(trueLog({level:'full',stream:ws}));
   ```
