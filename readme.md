@@ -2,7 +2,7 @@
 ## An Http Request Logger
 <h1>
 <img src="https://badge.fury.io/js/true-log.svg"/>
-<img src="https://travis-ci.org/Mujib517/true-logger.svg?branch=master"/>
+<img src="https://travis-ci.org/Mujib517/true-log.svg?branch=master"/>
 
 <img src='https://coveralls.io/repos/github/Mujib517/true-logger/badge.svg?branch=tech-debt%2Fcode-coverage'/>
 </h1>
