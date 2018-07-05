@@ -8,7 +8,7 @@ var port = process.env.PORT || 3000;
 
 var stream = fs.createWriteStream(__dirname + "/logs/log.txt", { flags: 'a' });
 
-app.use(trueLogger({ level: 'full', stream: stream }));
+app.use(trueLogger({stream:stream}));
 
 app.listen(port, function () {
     console.log("Server is running on " + port);

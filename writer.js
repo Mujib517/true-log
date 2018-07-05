@@ -31,10 +31,14 @@ function logToConsole(res) {
             color = red;
         }
     }
-    console.log(color, JSON.stringify(res.logObject));
+    if (res.config.level != 'full')
+        console.log(JSON.stringify(res.logObject));
+    else
+        console.log(color, JSON.stringify(res.logObject));
 }
 
 function writeToFile(res) {
     var stream = res.config.stream;
+    stream.write("\n");
     stream.write(JSON.stringify(res.logObject));
 }

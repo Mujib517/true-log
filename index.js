@@ -7,6 +7,8 @@ var writeLog = require('./writer');
 function trueLogger(config) {
 
     config = config || { level: 'tiny' };
+    
+    config.level = config.level || 'tiny';
 
     return function (req, res, next) {
 
