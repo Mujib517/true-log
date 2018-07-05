@@ -36,5 +36,6 @@ function logToConsole(res) {
 
 function writeToFile(res) {
     var stream = res.config.stream;
+    stream.write("\n");
     stream.write(JSON.stringify(res.logObject));
 }
